@@ -21,7 +21,7 @@ pomIncludeRepository := { _ => false }
 resolvers += Resolver.bintrayRepo("azavea", "geotrellis")
 
 libraryDependencies ++= Seq(
-  "com.azavea.geotrellis" %% "geotrellis-spark" % "0.10.0-87fbc6e",
+  "com.azavea.geotrellis" %% "geotrellis-spark" % "0.10.0",
   "org.apache.spark" %% "spark-core" % "1.5.2",
   "org.scalatest"       %%  "scalatest"      % "2.2.0" % "test"
 )
