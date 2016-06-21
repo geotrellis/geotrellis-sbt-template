@@ -8,5 +8,4 @@ class MainSpec extends FunSpec with Matchers {
       Main.helloSentence should be ("Hello GeoTrellis")
     }
   }
-
 }

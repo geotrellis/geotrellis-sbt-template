@@ -1,6 +1,6 @@
 name := "geotrellis-sbt-template"
 version := "0.1.0"
-scalaVersion := "2.10.5"
+scalaVersion := "2.10.6"
 crossScalaVersions := Seq("2.11.5", "2.10.5")
 organization := "com.azavea"
 licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html"))
@@ -21,8 +21,8 @@ pomIncludeRepository := { _ => false }
 resolvers += Resolver.bintrayRepo("azavea", "geotrellis")
 
 libraryDependencies ++= Seq(
-  "com.azavea.geotrellis" %% "geotrellis-spark" % "0.10.0",
-  "org.apache.spark" %% "spark-core" % "1.5.2",
+  "com.azavea.geotrellis" %% "geotrellis-spark" % "0.10.1",
+  "org.apache.spark" %% "spark-core" % "1.6.1" % "provided",
   "org.scalatest"       %%  "scalatest"      % "2.2.0" % "test"
 )
 
