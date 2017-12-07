@@ -1,9 +1,9 @@
 // Rename this as you see fit
 name := "geotrellis-sbt-template"
 
-version := "0.1.0"
+version := "0.2.0"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.12"
 
 organization := "com.azavea"
 
@@ -17,19 +17,21 @@ scalacOptions ++= Seq(
   "-language:reflectiveCalls",
   "-language:higherKinds",
   "-language:postfixOps",
-  "-language:existentials",
-  "-feature")
+  "-language:existentials")
 
 publishMavenStyle := true
 publishArtifact in Test := false
 pomIncludeRepository := { _ => false }
 
-resolvers += Resolver.bintrayRepo("azavea", "geotrellis")
+resolvers ++= Seq(
+  "locationtech-releases" at "https://repo.locationtech.org/content/groups/releases",
+  "locationtech-snapshots" at "https://repo.locationtech.org/content/groups/snapshots"
+)
 
 libraryDependencies ++= Seq(
-  "com.azavea.geotrellis" %% "geotrellis-spark" % "1.0.0-d9f051d",
-  "org.apache.spark"      %% "spark-core"       % "2.0.1" % "provided",
-  "org.scalatest"         %%  "scalatest"       % "2.2.0" % "test"
+  "org.locationtech.geotrellis" %% "geotrellis-spark" % "1.2.0-RC2",
+  "org.apache.spark"      %% "spark-core"       % "2.2.0" % Provided,
+  "org.scalatest"         %%  "scalatest"       % "2.2.0" % Test
 )
 
 // When creating fat jar, remote some files with
@@ -44,3 +46,14 @@ assemblyMergeStrategy in assembly := {
   case "META-INF/ECLIPSEF.SF" => MergeStrategy.discard
   case _ => MergeStrategy.first
 }
+
+initialCommands in console := """
+ |import geotrellis.raster._
+ |import geotrellis.vector._
+ |import geotrellis.proj4._
+ |import geotrellis.spark._
+ |import geotrellis.spark.io._
+ |import geotrellis.spark.io.hadoop._
+ |import geotrellis.spark.tiling._
+ |import geotrellis.spark.util._
+ """.stripMargin
