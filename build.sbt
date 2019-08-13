@@ -1,7 +1,7 @@
 // Rename this as you see fit
 name := "geotrellis-sbt-template"
 
-version := "0.2.0"
+version := "0.2.1"
 
 scalaVersion := "2.11.12"
 
@@ -29,8 +29,8 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.locationtech.geotrellis" %% "geotrellis-spark" % "1.2.0-RC2",
-  "org.apache.spark"      %% "spark-core"       % "2.2.0" % Provided,
+  "org.locationtech.geotrellis" %% "geotrellis-spark" % "2.3.1",
+  "org.apache.spark"      %% "spark-core"       % "2.4.1" % Provided,
   "org.scalatest"         %%  "scalatest"       % "2.2.0" % Test
 )
 
