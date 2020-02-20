@@ -29,9 +29,11 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.locationtech.geotrellis" %% "geotrellis-spark" % "1.2.0-RC2",
-  "org.apache.spark"      %% "spark-core"       % "2.2.0" % Provided,
-  "org.scalatest"         %%  "scalatest"       % "2.2.0" % Test
+  "org.locationtech.geotrellis" %% "geotrellis-spark" % "3.2.0",
+  "org.locationtech.geotrellis" %% "geotrellis-s3" % "3.2.0",
+  "org.locationtech.geotrellis" %% "geotrellis-s3-spark" % "3.2.0",
+  "org.apache.spark"      %% "spark-core"       % "2.4.4" % Provided,
+  "org.scalatest"         %%  "scalatest"       % "3.1.0" % Test
 )
 
 // When creating fat jar, remote some files with
@@ -51,9 +53,9 @@ initialCommands in console := """
  |import geotrellis.raster._
  |import geotrellis.vector._
  |import geotrellis.proj4._
+ |import geotrellis.layer._
+ |import geotrellis.store.util._
+ |import geotrellis.store.s3._
  |import geotrellis.spark._
- |import geotrellis.spark.io._
- |import geotrellis.spark.io.hadoop._
- |import geotrellis.spark.tiling._
- |import geotrellis.spark.util._
+ |import geotrellis.spark.store.s3._
  """.stripMargin
